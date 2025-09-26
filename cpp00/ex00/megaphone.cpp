@@ -6,7 +6,7 @@
 /*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 12:52:44 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/09/25 13:10:08 by nara             ###   ########.fr       */
+/*   Updated: 2025/09/26 14:13:32 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int main(int argc, char **argv)
     for (int i = 1; i < argc; i++)
     {
         for (size_t j = 0; argv[i][j]; j++)
-        {
             std::cout << static_cast<char>(std::toupper(argv[i][j]));
-        }
     }
     std::cout << std::endl;
     return 0;
