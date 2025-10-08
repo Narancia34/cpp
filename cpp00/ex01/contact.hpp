@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 17:38:18 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/08 12:35:35 by mgamraou         ###   ########.fr       */
+/*   Created: 2025/10/08 09:59:45 by mgamraou          #+#    #+#             */
+/*   Updated: 2025/10/08 10:01:52 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include <iostream>
 
-void PhoneBook::add(){
-	std::string inp;
-	while (inp.empty())
-	{
-		std::cout << "name: ";
-		std::getline(std::cin, inp);
-		if (!inp.empty())
-			break;
-		std::cout << "u cant have an empty field!" << std::endl;
-	}
-}
+class Contact {
+private:
+	std::string FirstName;
+	std::string LastName;
+	std::string DarkestSecret;
+	std::string PhoneNumber;
+public:
+	std::string getter();
+};
