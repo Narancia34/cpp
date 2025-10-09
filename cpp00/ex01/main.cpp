@@ -16,7 +16,13 @@ int main() {
 	PhoneBook MyPhoneBook;
 	std::string Command;
 
-	std::getline(std::cin, Command);
-	if (Command == "ADD")
-		MyPhoneBook.add();
+	MyPhoneBook.SetIndex(0);
+	while (Command != "EXIT")
+	{
+		std::getline(std::cin, Command);
+		if (Command == "ADD")
+			MyPhoneBook.add();
+		else if (Command == "SEARCH")
+			MyPhoneBook.search();
+	}
 }

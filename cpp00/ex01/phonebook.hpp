@@ -15,7 +15,10 @@
 class PhoneBook {
 private:
 	Contact Contacts[8];
+	int index;
 public:
 	void add();
 	void search();
+	int GetIndex();
+	void SetIndex(int Value);
 };

@@ -29,6 +29,10 @@ std::string Contact::GetPhoneNumber(){
 	return (PhoneNumber);
 }
 
+std::string Contact::GetNickName(){
+	return (NickName);
+}
+
 void Contact::SetFirstName(std::string value){
 	FirstName = value;
 }
@@ -43,4 +47,8 @@ void Contact::SetSecret(std::string value){
 
 void Contact::SetPhoneNumber(std::string value){
 	PhoneNumber = value;
+}
+
+void Contact::SetNickName(std::string value){
+	NickName = value;
 }
