@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:38:18 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/08 13:47:19 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:10:29 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <iomanip>
 
-int PhoneBook::GetIndex(){
-	return index;
-}
-
 void PhoneBook::SetIndex(int Value){
 	index = Value;
+}
+
+int ContactCount(int index)
+{
+	if (index < 8)
+		return index;
+	return 7;
 }
 
 std::string getinfo(std::string Prompt){
@@ -48,11 +51,15 @@ void PhoneBook::add(){
 }
 
 void PhoneBook::search(){
+	if (ContactCount(index) == 0){
+		std::cout << "no info to search for" << std::endl;
+		return;
+	}
 	std::cout << std::setw(10) << "Index" << "|";
 	std::cout << std::setw(10) << "firstname" << "|";
 	std::cout << std::setw(10) << "lastname" << "|";
 	std::cout << std::setw(10) << "nickname" << std::endl;
-	for (unsigned long i = 0; i < sizeof(Contacts) / sizeof(Contacts[0]); i++){
+	for (int i = 0; i < ContactCount(index) ; i++){
 		std::cout << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << Contacts[i].GetFirstName() << "|";
 		std::cout << std::setw(10) << Contacts[i].GetLastName() << "|";

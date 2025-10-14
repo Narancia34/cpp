@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 09:59:07 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/08 12:31:01 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:25:05 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ private:
 public:
 	void add();
 	void search();
-	int GetIndex();
 	void SetIndex(int Value);
 };
 #endif
