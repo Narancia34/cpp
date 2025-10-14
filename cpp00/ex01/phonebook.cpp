@@ -66,7 +66,7 @@ void PhoneBook::search(){
 	}
 	std::string input = getinfo("input the index you wish to get more info: ");
 	int searchIndex = atoi(input.c_str());
-	if (searchIndex > ContactCount(index) || searchIndex < 0)
+	if (searchIndex > ContactCount(index) - 1 || searchIndex < 0)
 		std::cout << "invalid index" << std::endl;
 	else {
 		std::cout << "firstname: " << Contacts[searchIndex].GetFirstName() << std::endl;
