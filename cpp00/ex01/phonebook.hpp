@@ -13,6 +13,9 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 #include "contact.hpp"
+#include <iomanip>
+#include <iostream>
+#include <stdlib.h>
 
 class PhoneBook {
 private:
@@ -23,4 +26,6 @@ public:
 	void search();
 	void SetIndex(int Value);
 };
+
+std::string getinfo(std::string Prompt);
 #endif

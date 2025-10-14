@@ -19,10 +19,12 @@ int main() {
 	MyPhoneBook.SetIndex(0);
 	while (Command != "EXIT")
 	{
-		std::getline(std::cin, Command);
+		Command = getinfo("enter one of the three commands [ADD] [SEARCH] [EXIT]: ");
 		if (Command == "ADD")
 			MyPhoneBook.add();
 		else if (Command == "SEARCH")
 			MyPhoneBook.search();
+		else if (Command == "EXIT")
+			return 0;
 	}
 }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
-#include <iomanip>
 
 void PhoneBook::SetIndex(int Value){
 	index = Value;
@@ -33,7 +32,7 @@ std::string getinfo(std::string Prompt){
 		if (!Inp.empty()){
 			return Inp;
 		}
-		std::cout << "u cant have an empty field!" << std::endl;
+		std::cout << "u cant leave it empty!" << std::endl;
 	}
 	return Inp;
 }
@@ -63,6 +62,17 @@ void PhoneBook::search(){
 		std::cout << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << Contacts[i].GetFirstName() << "|";
 		std::cout << std::setw(10) << Contacts[i].GetLastName() << "|";
-		std::cout << std::setw(10) << Contacts[i].GetNickName() << "|" << std::endl;
+		std::cout << std::setw(10) << Contacts[i].GetNickName() << std::endl;
+	}
+	std::string input = getinfo("input the index you wish to get more info: ");
+	int searchIndex = atoi(input.c_str());
+	if (searchIndex > ContactCount(index) || searchIndex < 0)
+		std::cout << "invalid index" << std::endl;
+	else {
+		std::cout << "firstname: " << Contacts[searchIndex].GetFirstName() << std::endl;
+		std::cout << "lastname: " << Contacts[searchIndex].GetLastName() << std::endl;
+		std::cout << "nickname: " << Contacts[searchIndex].GetNickName() << std::endl;
+		std::cout << "phonemumber: " << Contacts[searchIndex].GetPhoneNumber() << std::endl;
+		std::cout << "darkest secret: " << Contacts[searchIndex].GetSecret() << std::endl;
 	}
 }
