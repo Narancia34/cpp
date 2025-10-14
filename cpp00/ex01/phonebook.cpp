@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <iomanip>
 
 int PhoneBook::GetIndex(){
 	return index;
@@ -47,7 +48,14 @@ void PhoneBook::add(){
 }
 
 void PhoneBook::search(){
+	std::cout << std::setw(10) << "Index" << "|";
+	std::cout << std::setw(10) << "firstname" << "|";
+	std::cout << std::setw(10) << "lastname" << "|";
+	std::cout << std::setw(10) << "nickname" << std::endl;
 	for (unsigned long i = 0; i < sizeof(Contacts) / sizeof(Contacts[0]); i++){
-		std::cout << Contacts[i].GetFirstName();
+		std::cout << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << Contacts[i].GetFirstName() << "|";
+		std::cout << std::setw(10) << Contacts[i].GetLastName() << "|";
+		std::cout << std::setw(10) << Contacts[i].GetNickName() << "|" << std::endl;
 	}
 }

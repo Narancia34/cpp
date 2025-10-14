@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 #include <iostream>
 
 class Contact {
@@ -31,3 +33,5 @@ public:
 	void SetPhoneNumber(std::string Value);
 	void SetNickName(std::string Value);
 };
+
+#endif
