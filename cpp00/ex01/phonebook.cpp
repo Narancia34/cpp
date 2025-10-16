@@ -23,6 +23,13 @@ int ContactCount(int index)
 	return 7;
 }
 
+std::string truncate(std::string str){
+	if (str.length() > 9){
+		return str.substr(0, 9) + ".";
+	}
+	return str;
+}
+
 std::string getinfo(std::string Prompt){
 	std::string Inp;
 	while (Inp.empty())
@@ -60,9 +67,9 @@ void PhoneBook::search(){
 	std::cout << std::setw(10) << "nickname" << std::endl;
 	for (int i = 0; i < ContactCount(index) ; i++){
 		std::cout << std::setw(10) << i << "|";
-		std::cout << std::setw(10) << Contacts[i].GetFirstName() << "|";
-		std::cout << std::setw(10) << Contacts[i].GetLastName() << "|";
-		std::cout << std::setw(10) << Contacts[i].GetNickName() << std::endl;
+		std::cout << std::setw(10) << truncate(Contacts[i].GetFirstName()) << "|";
+		std::cout << std::setw(10) << truncate(Contacts[i].GetLastName()) << "|";
+		std::cout << std::setw(10) << truncate(Contacts[i].GetNickName()) << std::endl;
 	}
 	std::string input = getinfo("input the index you wish to get more info: ");
 	int searchIndex = atoi(input.c_str());
