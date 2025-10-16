@@ -27,5 +27,5 @@ public:
 	void SetIndex(int Value);
 };
 
-std::string getinfo(std::string Prompt);
+std::string getinfo(std::string Prompt, bool number);
 #endif

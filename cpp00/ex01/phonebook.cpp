@@ -23,6 +23,14 @@ int ContactCount(int index)
 	return 7;
 }
 
+std::string is_number(std::string str){
+	for (size_t i = 0; i < str.length(); i++){
+		if (!isdigit(str[i]))
+			return "";
+	}
+	return str;
+}
+
 std::string truncate(std::string str){
 	if (str.length() > 9){
 		return str.substr(0, 9) + ".";
@@ -30,16 +38,22 @@ std::string truncate(std::string str){
 	return str;
 }
 
-std::string getinfo(std::string Prompt){
+std::string getinfo(std::string Prompt, bool number){
 	std::string Inp;
 	while (Inp.empty())
 	{
 		std::cout << Prompt;
 		std::getline(std::cin, Inp);
+		if (number){
+			Inp = is_number(Inp);
+		}
 		if (!Inp.empty()){
 			return Inp;
 		}
-		std::cout << "u cant leave it empty!" << std::endl;
+		if (number)
+			std::cout << "Wrong format!!" << std::endl;
+		else
+			std::cout << "u cant leave it empty!" << std::endl;
 	}
 	return Inp;
 }
@@ -47,11 +61,11 @@ std::string getinfo(std::string Prompt){
 void PhoneBook::add(){
 	std::string Inp;
 	Contact Current;
-	Current.SetFirstName(getinfo("First name: "));
-	Current.SetLastName(getinfo("Last name :"));
-	Current.SetNickName(getinfo("Nick name :"));
-	Current.SetPhoneNumber(getinfo("Phone number :"));
-	Current.SetSecret(getinfo("whats you're darkest secret :"));
+	Current.SetFirstName(getinfo("First name: ", false));
+	Current.SetLastName(getinfo("Last name :", false));
+	Current.SetNickName(getinfo("Nick name :", false));
+	Current.SetPhoneNumber(getinfo("Phone number :", true));
+	Current.SetSecret(getinfo("whats you're darkest secret :", false));
 	Contacts[index%8] = Current;
 	index++;
 }
@@ -71,7 +85,7 @@ void PhoneBook::search(){
 		std::cout << std::setw(10) << truncate(Contacts[i].GetLastName()) << "|";
 		std::cout << std::setw(10) << truncate(Contacts[i].GetNickName()) << std::endl;
 	}
-	std::string input = getinfo("input the index you wish to get more info: ");
+	std::string input = getinfo("input the index you wish to get more info: ", true);
 	int searchIndex = atoi(input.c_str());
 	if (searchIndex > ContactCount(index) - 1 || searchIndex < 0)
 		std::cout << "invalid index" << std::endl;

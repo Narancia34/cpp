@@ -19,7 +19,7 @@ int main() {
 	MyPhoneBook.SetIndex(0);
 	while (Command != "EXIT")
 	{
-		Command = getinfo("enter one of the three commands [ADD] [SEARCH] [EXIT]: ");
+		Command = getinfo("enter one of the three commands [ADD] [SEARCH] [EXIT]: ", false);
 		if (Command == "ADD")
 			MyPhoneBook.add();
 		else if (Command == "SEARCH")
