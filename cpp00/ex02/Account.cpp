@@ -91,7 +91,7 @@ bool Account::makeWithdrawal(int withdrawal){
 	_amount -= withdrawal;
 	_totalAmount -= withdrawal;
 	std::cout << "index:" << _accountIndex
-		<< ";amount:" << _amount + withdrawal
+		<< ";p_amount:" << _amount + withdrawal
 		<< ";withdrawal:" << withdrawal
 		<< ";amount:" << _amount
 		<< ";nb_withdrawals:" << _nbWithdrawals
@@ -112,9 +112,9 @@ void Account::displayStatus() const{
 }
 
 void Account::_displayTimestamp(){
-	time_t timestamp = time(NULL);
-	struct tm datetime = *localtime(&timestamp);
-	char output[50];
-	strftime(output, 50, "[%Y%m%d_%H%M%S] ", &datetime);
-	std::cout << output;
+	/*time_t timestamp = time(NULL);*/
+	/*struct tm datetime = *localtime(&timestamp);*/
+	/*char output[50];*/
+	/*strftime(output, 50, "[%Y%m%d_%H%M%S] ", &datetime);*/
+	/*std::cout << output;*/
 }
