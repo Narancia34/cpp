@@ -6,7 +6,7 @@
 /*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:38:18 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/14 17:10:29 by nara             ###   ########.fr       */
+/*   Updated: 2025/10/20 15:31:18 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void PhoneBook::SetIndex(int Value){
 
 int ContactCount(int index)
 {
-	if (index < 8)
+	if (index <= 8)
 		return index;
-	return 7;
+	return 8;
 }
 
 std::string is_number(std::string str){
