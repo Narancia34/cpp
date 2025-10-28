@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 15:45:16 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/26 15:46:27 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:41:26 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie* newZombie(std::string name){
-	Zombie *zombie = new Zombie("test");
-	(*zombie).annouce();
+	Zombie *zombie = new Zombie(name);
 	return (zombie);
 }
