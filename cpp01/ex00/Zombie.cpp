@@ -6,7 +6,7 @@
 /*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 14:54:45 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/29 16:25:01 by nara             ###   ########.fr       */
+/*   Updated: 2025/10/29 18:45:07 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ Zombie::~Zombie(){
 }
 
 void Zombie::announce(void){
-	std::cout << name << ": >: BraiiiiiiinnnzzzZ...\n";
+	std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
 }
