@@ -6,7 +6,7 @@
 /*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 14:56:19 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/10/28 15:40:54 by nara             ###   ########.fr       */
+/*   Updated: 2025/10/29 16:36:59 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class Zombie {
 	std::string name;
 public:
-	Zombie(std::string);
+	Zombie(std::string name);
+	~Zombie();
 	void announce(void);
 };
 Zombie* newZombie( std::string name );
