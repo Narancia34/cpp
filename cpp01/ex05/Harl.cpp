@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 16:57:04 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/04 17:29:53 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/05 17:45:13 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void Harl::complain(std::string level){
 			return;
 		}
 	}
-	std::cout << "i am skibidi" <<  std::endl;
+	std::cout << "[ Probably complaining about insignificant problems ]" <<  std::endl;
 }

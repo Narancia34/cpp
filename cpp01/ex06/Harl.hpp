@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 17:30:20 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/05 17:38:38 by mgamraou         ###   ########.fr       */
+/*   Created: 2025/11/05 16:46:50 by mgamraou          #+#    #+#             */
+/*   Updated: 2025/11/05 17:25:56 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(int argc, char **argv){
-	if (argc != 2){
-		return 1;
-	}
-	Harl harl;
-	harl.complain(argv[1]);
-}
+#include <iostream>
+
+class Harl{
+private:
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
+public:
+	void complain( std::string level );
+};
+
+#endif
