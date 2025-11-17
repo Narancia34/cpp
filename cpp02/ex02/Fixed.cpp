@@ -119,3 +119,28 @@ Fixed Fixed::operator--(int){
 	this->_value--;
 	return(tmp);
 }
+
+Fixed& Fixed::min(Fixed& p1, Fixed&p2){
+	if (p1 > p2)
+		return p2;
+	else
+		return p1;
+}
+Fixed& Fixed::max(Fixed& p1, Fixed&p2){
+	if (p1 > p2)
+		return p1;
+	else
+		return p2;
+}
+Fixed& Fixed::min(const Fixed& p1, const Fixed&p2){
+	if (p1 > p2)
+		return (Fixed&)p2;
+	else
+		return (Fixed&)p1;
+}
+Fixed& Fixed::max(const Fixed& p1, const Fixed&p2){
+	if (p1 > p2)
+		return (Fixed&)p1;
+	else
+		return (Fixed&)p2;
+}

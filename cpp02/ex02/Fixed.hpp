@@ -46,6 +46,10 @@ public:
 	Fixed& operator--();
 	Fixed operator++(int);
 	Fixed operator--(int);
+	static Fixed& min(Fixed& p1, Fixed&p2);
+	static Fixed& min(const Fixed& p1, const Fixed&p2);
+	static Fixed& max(Fixed& p1, Fixed&p2);
+	static Fixed& max(const Fixed& p1, const Fixed&p2);
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
