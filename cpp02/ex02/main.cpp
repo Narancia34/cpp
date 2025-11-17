@@ -13,17 +13,13 @@
 #include "Fixed.hpp"
 
 int main( void ) {
-	Fixed a( 1.1f );
-	Fixed const b( 1.11f );
-	/*Fixed const c( 42.42f );*/
-	if (b==a)
-		std::cout << "b==a"<< std::endl;
-	if (b>a)
-		std::cout << "b>a"<< std::endl;
-	if (b<a)
-		std::cout << "b<a"<< std::endl;
-	if (b!=a)
-		std::cout << "b!=a"<< std::endl;
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
 	return 0;
 }

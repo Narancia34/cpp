@@ -42,6 +42,10 @@ public:
 	Fixed operator-(const Fixed& rFixed) const;
 	Fixed operator*(const Fixed& rFixed) const;
 	Fixed operator/(const Fixed& rFixed) const;
+	Fixed& operator++();
+	Fixed& operator--();
+	Fixed operator++(int);
+	Fixed operator--(int);
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
