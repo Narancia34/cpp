@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:21:36 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/17 19:14:26 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:52:06 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,11 @@ Point& Point::operator=(const Point& other){
 }
 
 Point::~Point(){}
+
+Fixed Point::getX() const{
+	return this->x;
+}
+
+Fixed Point::getY() const{
+	return this->y;
+}

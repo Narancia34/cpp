@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:21:42 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/17 19:13:19 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/18 17:52:25 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public:
 	Point(const Point& other);
 	Point& operator=(const Point& other);
 	~Point();
+	Fixed getX() const;
+	Fixed getY() const;
 };
 
 bool bsp( Point const a, Point const b, Point const c, Point const point);
