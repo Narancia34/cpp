@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 14:53:28 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/23 15:04:44 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/23 15:08:51 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ private:
 	unsigned int _energy;
 	unsigned int _dmg;
 public:
-	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
