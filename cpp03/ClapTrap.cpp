@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:06:04 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/23 15:18:11 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/23 15:40:18 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,23 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 
 ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap destructor called" << std::endl;
+}
+
+void ClapTrap::attack(const std::string& target){
+	std::cout << "ClapTrap " << this->_name
+		<< " attacks " << target
+		<< ", causing " << this->_dmg
+		<< " points of damage !" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount){
+	std::cout << "ClapTrap " << this->_name
+		<< " lost " << amount
+		<< " health points !" << std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount){
+	std::cout << "ClapTrap " << this->_name
+		<< " gained " << amount
+		<< " health points" << std::endl;
 }
