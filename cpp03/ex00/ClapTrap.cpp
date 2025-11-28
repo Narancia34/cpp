@@ -6,13 +6,13 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:06:04 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/23 16:47:50 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:09:33 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Claptrap.hpp"
 
-ClapTrap::ClapTrap(std::string name): _hp(10), _dmg(), _energy(10), _name(name){
+ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _dmg(){
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
@@ -51,7 +51,14 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	this->_hp--;
+	if (amount > this->_hp)
+		amount = this->_hp;
+	if (this->_hp == 0){
+		std::cout << "ClapTrap " << this->_name
+			<< " is already dead" << std::endl;
+		return;
+	}
+	this->_hp -= amount;
 	std::cout << "ClapTrap " << this->_name
 		<< " lost " << amount
 		<< " health points !" << std::endl;
