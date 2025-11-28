@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:06:04 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/23 15:40:18 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:47:50 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ ClapTrap::~ClapTrap(){
 }
 
 void ClapTrap::attack(const std::string& target){
+	if (this->_energy <= 0){
+		std::cout << "energy too low to attack !" << std::endl;
+		return;
+	}
+	this->_energy--;
 	std::cout << "ClapTrap " << this->_name
 		<< " attacks " << target
 		<< ", causing " << this->_dmg
@@ -46,12 +51,19 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+	this->_hp--;
 	std::cout << "ClapTrap " << this->_name
 		<< " lost " << amount
 		<< " health points !" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
+	if (this->_energy <= 0){
+		std::cout << "energy too low to be repaired !" << std::endl;
+		return;
+	}
+	this->_energy--;
+	this->_hp += amount;
 	std::cout << "ClapTrap " << this->_name
 		<< " gained " << amount
 		<< " health points" << std::endl;
