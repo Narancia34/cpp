@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Claptrap.hpp"
 
 int main(){
 	ClapTrap a("a");
