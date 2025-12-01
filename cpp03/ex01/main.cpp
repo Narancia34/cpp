@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Claptrap.hpp"
+#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 int main(){
-	ClapTrap a("a");
-	a.takeDamage(12);
-	a.takeDamage(1);
-	a.beRepaired(8);
-	a.takeDamage(7);
-	for (int i = 0; i < 10; i++){
-		a.attack("someone");
-	}
+	ScavTrap a("taha");
+	a.guardGate();
+	a.takeDamage(20);
+	a.ClapTrap::attack("test");
+	a.attack("test2");
+	ScavTrap b;
 }

@@ -12,8 +12,16 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _dmg(){
+ClapTrap::ClapTrap(){
 	std::cout << "ClapTrap constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _dmg(){
+	std::cout << "ClapTrap parameterized constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hp, int energy, int dmg): _name(name), _hp(hp), _energy(energy), _dmg(dmg){
+	std::cout << "ClapTrap special parameterized constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other){

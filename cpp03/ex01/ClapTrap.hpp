@@ -16,12 +16,14 @@
 #include <iostream>
 
 class ClapTrap{
-private:
+protected:
 	std::string _name;
 	unsigned int _hp;
 	unsigned int _energy;
 	unsigned int _dmg;
+	ClapTrap(std::string name, int hp, int energy, int dmg);
 public:
+	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
