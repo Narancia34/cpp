@@ -10,19 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(){
-	FragTrap a("taha");
-	ClapTrap b("nara");
-	ScavTrap c("mohamed");
+	DiamondTrap a("skibidi");
 	a.attack("someone");
-	b.attack("lol");
-	c.attack("bleh");
+	a.ClapTrap::attack("idk");
+	a.whoAmI();
+	a.beRepaired(10);
 	a.highFivesGuys();
-	c.guardGate();
-	FragTrap d(a);
-	d.attack("idk");
-	d.takeDamage(90);
+	a.guardGate();
+	a.takeDamage(20);
+	a.beRepaired(20);
 }
