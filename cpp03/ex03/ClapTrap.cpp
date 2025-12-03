@@ -6,13 +6,13 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:06:04 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/28 16:09:33 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:42:22 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){
+ClapTrap::ClapTrap(): _hp(10), _energy(10), _dmg(){
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
 

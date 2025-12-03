@@ -6,14 +6,14 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 16:24:46 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/12/02 17:00:56 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:42:54 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ClapTrap.hpp"
 
-FragTrap::FragTrap(){
+FragTrap::FragTrap(): ClapTrap("", 100, 100, 30){
 	std::cout << "ScavTrap constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 16:24:49 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/12/02 16:33:47 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:06:03 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
       private:
 
       public:

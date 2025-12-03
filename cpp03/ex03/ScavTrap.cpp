@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 14:23:51 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/11/30 14:23:52 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:43:26 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <ostream>
 
-ScavTrap::ScavTrap(){
+ScavTrap::ScavTrap(): ClapTrap("", 100, 50, 20){
 	std::cout << "ScavTrap constructor called" << std::endl;
 }
 
