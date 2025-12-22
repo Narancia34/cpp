@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 19:08:58 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/12/22 19:26:38 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/22 20:51:29 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ Brain &Brain::operator=(const Brain &other){
 
 Brain::~Brain(){
 	std::cout << "Brain destructor called\n";
+}
+
+void Brain::think(std::string ideas[]){
+	for (int i = 0;i<100;i++){
+		_ideas[i] = ideas[i];}
 }

@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 11:32:29 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/12/22 18:18:13 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:13:42 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,34 @@
 
 int main()
 {
-	std::cout << "correct animal sounds" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	std::cout << "\nwrong animal sounds" << std::endl;
-	const WrongAnimal* wMeta = new WrongAnimal();
-	const WrongAnimal* wi = new WrongCat();
-	std::cout << wi->getType() << " " << std::endl;
-	wi->makeSound();
-	wMeta->makeSound();
-	delete wMeta;
-	delete wi;
-	return 0;
+	
+	Cat* cat1= new Cat();
+	std::string ideas[100];
+	for(int i = 0;i < 100;i++){
+		ideas[i] = "mouse";
+	}
+	std::string ideas1[100];
+	for(int i = 0;i < 100;i++){
+		ideas[i] = "mouse1";
+	}
+	cat1->fillBrain(ideas);
+	Cat* cat2 = new Cat();
+	cat2->fillBrain(ideas1);
+	*cat2 = *cat1;
+	Dog* dog1 = new Dog();
+	Dog* dog2 = new Dog();
+	Animal* animals[4];
+
+	animals[0] = cat1;
+	animals[1] = cat2;
+	animals[2] = dog1;
+	animals[3] = dog2;
+	animals[0]->makeSound();
+	animals[1]->makeSound();
+	animals[2]->makeSound();
+	animals[3]->makeSound();
+	std::cout << "\n-------------Destrcution here-------------\n\n";
+	for (int i = 0; i < 4; i++) {
+		delete animals[i];
+	}
 }
