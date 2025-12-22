@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 11:32:29 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/12/22 21:13:42 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:26:06 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 int main()
 {
-	
 	Cat* cat1= new Cat();
 	std::string ideas[100];
 	for(int i = 0;i < 100;i++){

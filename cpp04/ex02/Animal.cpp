@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 11:26:01 by mgamraou          #+#    #+#             */
-/*   Updated: 2025/12/20 11:31:23 by mgamraou         ###   ########.fr       */
+/*   Updated: 2025/12/22 21:25:17 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,4 @@ Animal::~Animal(){
 
 std::string Animal::getType() const{
 	return _type;
-}
-
-void Animal::makeSound() const{
-	std::cout << "yeeehaw" << std::endl;
 }
