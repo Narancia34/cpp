@@ -1,0 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/20 11:32:21 by mgamraou          #+#    #+#             */
+/*   Updated: 2025/12/20 11:32:22 by mgamraou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+#define DOG_HPP
+
+#include "Animal.hpp"
+
+class Dog : public Animal{
+public:
+	Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+	~Dog();
+	void makeSound() const;
+};
+
+#endif
