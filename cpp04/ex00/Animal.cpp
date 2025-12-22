@@ -13,16 +13,16 @@
 #include "Animal.hpp"
 
 Animal::Animal(){
-	std::cout << "animal constructer called\n";
+	std::cout << "animal constructor called\n";
 }
 
-Animal::Animal(std::string type){
-	std::cout << "animal parametrized constructer called\n";
-	_type = type;
+Animal::Animal(std::string type): _type(type){
+	std::cout << "animal parametrized constructor called\n";
 }
 
 Animal::Animal(const Animal &other){
-	std::cout << "animal copy constructer called\n";
+	std::cout << "animal copy constructor called\n";
+	_type = other._type;
 }
 
 Animal &Animal::operator=(const Animal &other){
@@ -33,4 +33,14 @@ Animal &Animal::operator=(const Animal &other){
         return (*this);
 }
 
-Animal::~Animal(){}
+Animal::~Animal(){
+	std::cout << "animal destructor called\n";
+}
+
+std::string Animal::getType() const{
+	return _type;
+}
+
+void Animal::makeSound() const{
+	std::cout << "yeeehaw" << std::endl;
+}

@@ -22,8 +22,14 @@ Cat::Cat(const Cat &other) : Animal(other){
 
 Cat &Cat::operator=(const Cat &other){
 	std::cout << "Cat copy assignment operator called\n";
-	if (this != &other){
-
-	}
+	Animal::operator=(other);
 	return (*this);
+}
+
+Cat::~Cat(){
+	std::cout << "Cat destructor called\n";
+}
+
+void Cat::makeSound() const {
+	std::cout << "meow" << std::endl;
 }
