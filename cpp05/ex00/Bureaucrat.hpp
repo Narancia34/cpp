@@ -40,6 +40,6 @@ public:
 	};
 };
 
-std::ostream& operator<<(std::ostream& out, const std::exception& e);
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 18:26:05 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/02/16 18:57:11 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/02/16 22:53:38 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(int grade, const std::string &name): _name(name){
 	_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other): _grade(other._grade), _name(other._name){}
+Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other._name), _grade(other._grade){}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other){
 	if (this != &other){
@@ -48,7 +48,7 @@ void Bureaucrat::incrementGrade(){
 	_grade--;
 }
 void Bureaucrat::decrementGrade(){
-	if(_grade + 1< 150){
+	if(_grade + 1 > 150){
 		throw Bureaucrat::GradeTooLow();
 	}
 	_grade++;
@@ -62,3 +62,9 @@ const char* Bureaucrat::GradeTooLow::what() const throw(){
 	return "Grade too low!\n";
 }
 
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b){
+	out << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
+	return out;
+}
+
+Bureaucrat::~Bureaucrat(){}
