@@ -16,6 +16,8 @@
 #include <exception>
 #include<iostream>
 
+class Form;
+
 class Bureaucrat {
 private:
 	const std::string _name;
@@ -38,6 +40,7 @@ public:
 	public:
 		virtual const char *what() const throw();
 	};
+	void signForm(Form &form);
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);

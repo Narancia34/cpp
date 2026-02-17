@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 23:33:30 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/02/17 00:37:32 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:51:28 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,22 @@ public:
 	void beSigned(Bureaucrat &b);
 	class GradeTooHighException : public std::exception{
 	private:
-		std::string message;
+		std::string _message;
 	public:
 		GradeTooHighException(const std::string &message);
 		virtual const char *what() const throw();
+		~GradeTooHighException() throw();
 	};
 	class GradeTooLowException : public std::exception{
 	private:
-		std::string message;
+		std::string _message;
 	public:
 		GradeTooLowException(const std::string &message);
 		virtual const char *what() const throw();
+		~GradeTooLowException() throw();
 	};
 };
+
+std::ostream& operator<<(std::ostream& out, const Form& f);
 
 #endif

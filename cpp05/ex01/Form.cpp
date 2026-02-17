@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 23:48:36 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/02/17 00:37:30 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:02:03 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,33 @@ const bool&Form::getIsSigned() const {
 }
 
 void Form::beSigned(Bureaucrat &b){
-	if (b.getGrade() <= _signReq)
-		_isSigned = true;
+	if (b.getGrade() > _signReq)
+		throw Form::GradeTooLowException("bereaucrat grade too low!");
+	_isSigned = true;
 }
+
+Form::GradeTooHighException::GradeTooHighException(const std::string &message): _message(message){}
+
+const char *Form::GradeTooHighException::what() const throw(){
+	return _message.c_str();
+}
+
+Form::GradeTooHighException::~GradeTooHighException() throw(){}
+
+Form::GradeTooLowException::GradeTooLowException(const std::string &message): _message(message){}
+
+const char *Form::GradeTooLowException::what() const throw(){
+	return _message.c_str();
+}
+
+Form::GradeTooLowException::~GradeTooLowException() throw(){}
+
+std::ostream& operator<<(std::ostream& out, const Form& f){
+	out << "Form name: " << f.getName()
+		<< "\nIs signed: " << (f.getIsSigned() ? "true" : "false")
+		<< "\nSign req grade: " << f.getSignReq()
+		<< "\nExecution req grade: " << f.getExecReq() << std::endl;
+	return out;
+}
+
+Form::~Form(){}

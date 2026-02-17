@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <exception>
 
 Bureaucrat::Bureaucrat(): _name("unnamed"), _grade(150){}
 
@@ -68,3 +70,15 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& b){
 }
 
 Bureaucrat::~Bureaucrat(){}
+
+void Bureaucrat::signForm(Form &form){
+	try{
+		form.beSigned(*this);
+		std::cout << this->getName()
+			<< " signed " << form.getName() << std::endl;
+	} catch(std::exception &e){
+		std::cout << this->getName()
+			<< " couldn't sign "<< form.getName()
+			<< " because " << e.what() << std::endl;
+	}
+}
