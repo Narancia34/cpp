@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 23:48:36 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/02/18 02:34:57 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/02/18 17:34:21 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ const std::string&AForm::getName() const{
 	return _name;
 }
 
-const int AForm::getSignReq() const{
+int AForm::getSignReq() const{
 	return _signReq;
 }
-const int AForm::getExecReq() const{
+int AForm::getExecReq() const{
 	return _execReq;
 }
 
-const bool AForm::getIsSigned() const {
+bool AForm::getIsSigned() const {
 	return _isSigned;
 }
 
