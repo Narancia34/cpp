@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 18:17:29 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/02/17 18:38:42 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/02/18 03:18:24 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ public:
 		virtual const char *what() const throw();
 	};
 	void signForm(AForm &form);
+	void executeForm(AForm const & form) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);
