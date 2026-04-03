@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 20:30:43 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/01 20:42:33 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/04/03 23:19:00 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ private:
 	ScalarConverter(const ScalarConverter &other);
 	ScalarConverter &operator=(const ScalarConverter &other);
 	~ScalarConverter();
+	static bool isPseudoLiteral(const std::string &literal);
+	static bool isChar(const std::string &literal);
+	static bool isInt(const std::string &literal);
+	static bool isFloat(const std::string &literal);
+	static bool isDouble(const std::string &literal);
+	static void convertPseudoLiteral(const std::string &literal);
+	static void convertChar(const std::string &literal);
+	static void convertInt(const std::string &literal);
+	static void convertFloat(const std::string &literal);
+	static void convertDouble(const std::string &literal);
 public:
 	static void convert(const std::string &literal);
 };
