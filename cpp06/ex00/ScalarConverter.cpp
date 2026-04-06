@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <cctype>
+#include <string>
 
 ScalarConverter::ScalarConverter(){}
 
@@ -18,7 +20,10 @@ ScalarConverter::~ScalarConverter(){}
 
 ScalarConverter::ScalarConverter(const ScalarConverter &other){ (void)other;}
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other){(void)other;}
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other){
+	(void)other;
+	return *this;
+}
 
 bool ScalarConverter::isPseudoLiteral(const std::string &literal) {
     return (literal == "nan" || literal == "nanf" ||
@@ -84,3 +89,27 @@ void	ScalarConverter::convertInt(const std::string& literal) {
 			  << "float: " << f << "f" << '\n'
 			  << "double: " << d << std::endl;
 }
+
+bool ScalarConverter::isFloat(const std::string& literal) {
+    int l = literal.length();
+    if (l < 2 || literal[l - 1] != 'f')
+        return false;
+    int i = 0;
+    if (literal[i] == '-' || literal[i] == '+')
+        i++;
+    bool hasDecimal = false;
+    bool hasDigits = false;
+    while (i < l - 1) {
+        if (literal[i] == '.') {
+            if (hasDecimal) return false;
+            hasDecimal = true;
+        } else if (std::isdigit(literal[i])) {
+            hasDigits = true;
+        } else {
+            return false;
+        }
+        i++;
+    }
+    return hasDigits; 
+}
+
