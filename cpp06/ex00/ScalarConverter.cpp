@@ -18,7 +18,7 @@ ScalarConverter::~ScalarConverter(){}
 
 ScalarConverter::ScalarConverter(const ScalarConverter &other){ (void)other;}
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other){(void)other;}
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other){(void)other; return *this;}
 
 bool ScalarConverter::isPseudoLiteral(const std::string &literal) {
     return (literal == "nan" || literal == "nanf" ||
@@ -45,7 +45,7 @@ bool ScalarConverter::isChar(const std::string &literal) {
 
 void ScalarConverter::convertChar(const std::string &literal){
     char c = literal[0];
-    std::cout << "char: '" << c << "'" << std::endl;
+    std::cout << "char: '" << static_cast<char>(c) << "'" << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
     std::cout << "float: " << static_cast<float>(c) << std::endl;
     std::cout << "double: " << static_cast<double>(c) << std::endl;
@@ -64,6 +64,7 @@ bool ScalarConverter::isInt(const std::string &literal) {
     return true;
 }
 
+<<<<<<< Updated upstream
 void	ScalarConverter::convertInt(const std::string& literal) {
 	char* end;
 	long i = std::strtol(literal.c_str(), &end, 10);
@@ -83,4 +84,8 @@ void	ScalarConverter::convertInt(const std::string& literal) {
 	std::cout << "int: " << i << '\n'
 			  << "float: " << f << "f" << '\n'
 			  << "double: " << d << std::endl;
+=======
+void ScalarConverter::convertInt(const std::string &literal){
+	
+>>>>>>> Stashed changes
 }
