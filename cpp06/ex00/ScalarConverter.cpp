@@ -6,7 +6,7 @@
 /*   By: nara <nara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 18:10:19 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/03 23:26:54 by nara             ###   ########.fr       */
+/*   Updated: 2026/04/06 16:04:01 by nara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,25 @@ bool ScalarConverter::isInt(const std::string &literal) {
         i++;
     }
     return true;
+}
+
+void	ScalarConverter::convertInt(const std::string& literal) {
+	char* end;
+	long i = std::strtol(literal.c_str(), &end, 10);
+	if (*end != '\0' || i < INT_MIN || i > INT_MAX) {
+		throw std::runtime_error("The integer value exceeds the limits");
+	}
+	char c = static_cast<char>(i);
+	float f = static_cast<float>(i);
+	double d = static_cast<double>(i);
+	if (i < 0 || i > 127) {
+		std::cout << "char: impossible" << std::endl;
+	} else if (!std::isprint(c)) {
+		std::cout << "char: Non displayable" << std::endl;
+	} else {
+		std::cout << "char: '" << c << "'" << std::endl;
+	}
+	std::cout << "int: " << i << '\n'
+			  << "float: " << f << "f" << '\n'
+			  << "double: " << d << std::endl;
 }
