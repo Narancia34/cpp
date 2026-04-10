@@ -12,6 +12,7 @@
 
 #include "ScalarConverter.hpp"
 #include <cctype>
+#include <climits>
 #include <cstdlib>
 #include <string>
 #include <stdlib.h>
@@ -118,17 +119,22 @@ bool ScalarConverter::isFloat(const std::string& literal) {
 void ScalarConverter::convertFloat(const std::string &literal){
 	float f = std::strtof(literal.c_str(), NULL);
 	char c = static_cast<char>(f);
-	int i = static_cast<int>(f);
 	double d = static_cast<double>(f);
-	if (i < 0 || i > 127){
+	if (f < 0 || f > 127){
 		std::cout << "char: impossible" << std::endl;
 	} else if (!std::isprint(c)) {
 		std::cout << "char: non displayable" << std::endl;
 	} else {
 		std::cout << "char: '" << c << "'" << std::endl;
 	}
-	std::cout << "int: " << i << '\n'
-			<< "float: " << f << '\n'
-			<< "double: " << d << std::endl;
+	if (f < INT_MIN || f > INT_MAX)
+		std::cout << "int: impossible" << std::endl;
+	else {
+		int i = static_cast<int>(f);
+		std::cout << "int: " << i << std::endl;
+	}
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f\n"
+		<< "double: " << d << std::endl;
 }
+
 
