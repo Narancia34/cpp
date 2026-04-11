@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/10 22:33:11 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/11 17:16:38 by mgamraou         ###   ########.fr       */
+/*   Created: 2026/04/11 17:08:48 by mgamraou          #+#    #+#             */
+/*   Updated: 2026/04/11 17:19:10 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#include "Base.hpp"
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-
-class Base{
-public:
-	virtual ~Base();
-};
-
-Base *generate(void);
-void identify(Base *p);
-void identify(Base &p);
-
-#endif
+int main(){
+	std::srand(std::time(NULL));
+	Base *p = generate();
+	identify(p);
+	Base *p1 = generate();
+	identify(*p1);
+}
