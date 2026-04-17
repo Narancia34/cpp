@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 17:10:19 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/15 17:37:04 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/04/17 18:29:20 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <exception>
 #include <vector>
+#include <iostream>
 
 class Span{
 private:
