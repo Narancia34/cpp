@@ -31,13 +31,17 @@ Span& Span::operator=(const Span& other) {
 
 Span::~Span(){}
 
+
+const char* Span::SpanFullException::what() const throw(){return "Span is full";}
+const char* Span::NoSpanException::what() const throw() { return "Not enough numbers for a span"; }
+
 void Span::addNumber(int number){
 	if (_elements.size() >= _n)
 		throw SpanFullException();
 	_elements.push_back(number);
 }
 
-int Span::shortestSpan() {
+unsigned int Span::shortestSpan() {
     if (_elements.size() < 2)
         throw NoSpanException();
 
@@ -54,7 +58,7 @@ int Span::shortestSpan() {
     return minDiff;
 }
 
-int Span::longestSpan(){
+unsigned int Span::longestSpan(){
 	if (_elements.size() < 2)
 		throw NoSpanException();
 	int minVal = *std::min_element(_elements.begin(), _elements.end());

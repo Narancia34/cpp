@@ -29,8 +29,8 @@ public:
 	Span &operator=(const Span &other);
 	~Span();
 	void addNumber(int number);
-	int shortestSpan();
-	int longestSpan();
+	unsigned int shortestSpan();
+	unsigned int longestSpan();
 	template <typename T>
 	void addRange(T begin, T end) {
 		if (std::distance(begin, end) + _elements.size() > _n)
@@ -39,10 +39,11 @@ public:
 	}
 	class SpanFullException : public std::exception {
 	public:
-		virtual const char *what() const throw(){return "Span is full";}
+		virtual const char *what() const throw();
 	};
 	class NoSpanException : public std::exception {
-	public: virtual const char* what() const throw() { return "Not enough numbers for a span"; }
+	public:
+		virtual const char* what() const throw();
 	};
 };
 
