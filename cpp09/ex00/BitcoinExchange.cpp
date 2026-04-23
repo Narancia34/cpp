@@ -34,14 +34,13 @@ BitcoinExchange::~BitcoinExchange() {}
 void BitcoinExchange::checkDateSyntax(const std::string &date){
 	if (date.length() != 10)
 		throw std::runtime_error("bad date input => " + date + "/n");
-	int hyphen = 0;
 	for(int i = 0; i < 10; i++){
-		if (date[i] == '-'){
-			if (hyphen == 2)
+		if (i == 4 || i == 7) {
+			if (date[i] != '-')
 				throw std::runtime_error("bad date input => " + date + "\n");
-			hyphen++;
-		} else if (!std::isdigit(date[i])){
-			throw std::runtime_error("bad date input => " + date + "\n");
+		} else {
+			if (!std::isdigit(date[i]))
+				throw std::runtime_error("bad date input => " + date + "\n");
 		}
 	}
 }
@@ -65,10 +64,25 @@ bool BitcoinExchange::isValidDate(int year, int month, int day){
 void BitcoinExchange::parseDate(const std::string &date){
 	checkDateSyntax(date);
 	int year = std::atoi(date.substr(0, 4).c_str());
-	int month = std::atoi(date.substr(5, 7).c_str());
+	int month = std::atoi(date.substr(5, 2).c_str());
 	int day = std::atoi(date.substr(8).c_str());
 	if (!isValidDate(year, month, day))
 		throw std::runtime_error("bad date input => " + date + "\n");
+}
+
+float BitcoinExchange::parseValue(const std::string &value){
+	char* end = NULL;
+	double numeric_value = strtod(value.c_str(), &end);
+	while (std::isspace(*end))
+		end++;
+	if (*end != '\0') {
+		throw std::runtime_error("value not valid => " + value + "\n");
+	} else if (numeric_value > 1000) {
+		throw std::runtime_error("too large a number.");
+	} else if (numeric_value < 0) {
+		throw std::runtime_error("not a positive number.");
+	}
+	return numeric_value;
 }
 
 void BitcoinExchange::readDataBase(){
@@ -109,8 +123,8 @@ void BitcoinExchange::validateInput(std::string path){
 		}
 		std::string value = line.substr(pipe + 3);
 		try {
-		float numeric_value = parseValue(value);
-			
+			float numeric_value = parseValue(value);
+			evaluateBtcValue(date, numeric_value);
 		} catch (std::exception &e) {
 			std::cout << "Error: " << e.what();
 			continue;
