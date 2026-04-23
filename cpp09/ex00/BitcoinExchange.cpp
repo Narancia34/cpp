@@ -6,11 +6,12 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 10:38:59 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/23 12:00:37 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/04/23 12:18:19 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <cctype>
 #include <fstream>
 #include <stdexcept>
 #include <string>
@@ -29,6 +30,46 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+void BitcoinExchange::checkDateSyntax(const std::string &date){
+	if (date.length() != 10)
+		throw std::runtime_error("bad date input => " + date + "/n");
+	int hyphen = 0;
+	for(int i = 0; i < 10; i++){
+		if (date[i] == '-'){
+			if (hyphen == 2)
+				throw std::runtime_error("bad date input => " + date + "\n");
+			hyphen++;
+		} else if (!std::isdigit(date[i])){
+			throw std::runtime_error("bad date input => " + date + "\n");
+		}
+	}
+}
+
+bool BitcoinExchange::isValidDate(int year, int month, int day){
+	if (year < 2009) return false;
+	if (year == 2009 && month == 1 && day < 2) return false;
+	if (month < 1 || month > 12) return false;
+	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if (month == 2)
+	{
+		bool leap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+		if (leap)
+			daysInMonth[1] = 29;
+	}
+	if (day < 1 || day > daysInMonth[month - 1])
+		return false;
+	return true;
+}
+
+void BitcoinExchange::parseDate(const std::string &date){
+	checkDateSyntax(date);
+	int year = std::atoi(date.substr(0, 4).c_str());
+	int month = std::atoi(date.substr(5, 7).c_str());
+	int day = std::atoi(date.substr(8).c_str());
+	if (!isValidDate(year, month, day))
+		throw std::runtime_error("bad date input => " + date + "\n");
+}
 
 void BitcoinExchange::readDataBase(){
 	std::ifstream db("./data.csv");

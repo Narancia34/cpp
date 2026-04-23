@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 10:20:38 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/23 12:00:06 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/04/23 12:20:22 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ private:
 	void parseDate(const std::string &date);
 	float parseValue(const std::string &value);
 	void evaluateBtcValue(const std::string &date, float value);
-	void DateSyntax(const std::string &date);
+	void checkDateSyntax(const std::string &date);
+	bool isValidDate(int year, int month, int day);
 public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange& other);
