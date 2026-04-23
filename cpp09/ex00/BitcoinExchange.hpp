@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 10:20:38 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/23 11:54:13 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/04/23 12:00:06 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 class BitcoinExchange {
 private:
 	std::map<std::string, float> _db;
-	void parseDate(std::string date);
-	float parseValue(std::string value);
+	void parseDate(const std::string &date);
+	float parseValue(const std::string &value);
 	void evaluateBtcValue(const std::string &date, float value);
+	void DateSyntax(const std::string &date);
 public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange& other);
