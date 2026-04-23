@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 10:38:59 by mgamraou          #+#    #+#             */
-/*   Updated: 2026/04/23 12:18:19 by mgamraou         ###   ########.fr       */
+/*   Updated: 2026/04/23 13:35:27 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ BitcoinExchange::~BitcoinExchange() {}
 
 void BitcoinExchange::checkDateSyntax(const std::string &date){
 	if (date.length() != 10)
-		throw std::runtime_error("bad date input => " + date + "/n");
+		throw std::runtime_error("bad date input => " + date + "\n");
 	for(int i = 0; i < 10; i++){
 		if (i == 4 || i == 7) {
 			if (date[i] != '-')
@@ -78,11 +78,26 @@ float BitcoinExchange::parseValue(const std::string &value){
 	if (*end != '\0') {
 		throw std::runtime_error("value not valid => " + value + "\n");
 	} else if (numeric_value > 1000) {
-		throw std::runtime_error("too large a number.");
+		throw std::runtime_error("too large a number.\n");
 	} else if (numeric_value < 0) {
-		throw std::runtime_error("not a positive number.");
+		throw std::runtime_error("not a positive number.\n");
 	}
 	return numeric_value;
+}
+
+void BitcoinExchange::evaluateBtcValue(const std::string &date, float value){
+	std::map<std::string, float>::iterator it = this->_db.lower_bound(date);
+	float	db_value;
+	if (it == this->_db.end()) {
+		--it;
+		db_value = it->second;
+	} else if (it->first == date) {
+		db_value = it->second;
+	} else {
+		--it;
+		db_value = it->second;
+	}
+	std::cout << date << " => " << value << " = " << value * db_value << "\n";
 }
 
 void BitcoinExchange::readDataBase(){
@@ -109,7 +124,7 @@ void BitcoinExchange::validateInput(std::string path){
 	std::string line;
 	std::getline(input_file, line);
 	while(std::getline(input_file, line)){
-		int pipe = line.find(" | ");
+		size_t pipe = line.find(" | ");
 		if (pipe == std::string::npos){
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
