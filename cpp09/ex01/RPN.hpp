@@ -22,7 +22,8 @@
 class RPN {
 private:
 	std::stack<int> _stack;
-	bool isOperator(char c);
+	bool isOperator(const char c) const;
+	void performOperation(const char c);
 public:
 	RPN();
 	RPN(const RPN& other);
